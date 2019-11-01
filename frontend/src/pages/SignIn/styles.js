@@ -37,7 +37,7 @@ export const Container = styled.div`
         }
       }
       span {
-        color: #f64c75;
+        color: #cc6666;
         align-self: flex-start;
         margin: 0 0 10px;
         text-shadow: 1px 1px #333;
@@ -52,15 +52,6 @@ export const Container = styled.div`
         border-radius: 4px;
         font-size: 16px;
         transition: background 0.2s;
-      }
-      a {
-        color: #006c96;
-        margin-top: 15px;
-        font-size: 16px;
-        opacity: 0.8;
-        &:hover {
-          opacity: 1;
-        }
       }
     }
   }

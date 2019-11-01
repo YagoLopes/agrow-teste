@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Form, Input } from "@rocketseat/unform";
 import * as Yup from "yup";
 import { Container } from "./styles";
+import api from "../../services/api";
+import {setToken} from "../../services/auth";
 
 import logo from "../../assets/img/logo.png";
 
@@ -13,9 +14,15 @@ const schema = Yup.object().shape({
   password: Yup.string().required("A senha é obrigatória.")
 });
 
-export default function SignIn() {
-  function handleSubmit({ email, password }) {
-    console.log({ email, password });
+export default function SignIn({history}) {
+ async function handleSubmit({ email, password }) {
+    try {
+      const response = await api.post("session", { email, password });
+      await setToken(response.data._id);
+      history.push("/main");
+    } catch (error) {
+      alert.error("Usuário ou senha ivalida!!");
+    }
   }
 
   return (
@@ -28,7 +35,6 @@ export default function SignIn() {
           <Input type="password" name="password" placeholder="Senha" />
 
           <button type="submit">Acessar</button>
-          <Link to="/register">Criar conta gratuita</Link>
         </Form>
       </main>
     </Container>

@@ -27,7 +27,7 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={SignIn} />
-        <PrivateRoute path="/Main" component={Main} />
+        <PrivateRoute path="/main" component={Main} />
         <PrivateRoute path="/users" exact component={UserList} />
 
         <PrivateRoute path="/users/create" component={UserForm} />
