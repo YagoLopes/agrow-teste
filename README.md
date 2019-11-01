@@ -27,3 +27,9 @@
 - [ ] Delete demand
 - [ ] Show demand
 - [ ] Show demand
+
+## Others
+- [ ] Header
+- [ ] Navigation
+- [ ] Footer
+- [ ] ChartJs
