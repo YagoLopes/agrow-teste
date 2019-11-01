@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   main {
     display: flex;
     flex-direction: column;
@@ -18,11 +17,9 @@ export const Container = styled.div`
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 20px;
-
     img {
       max-width: 50%;
     }
-
     form {
       display: flex;
       flex-direction: column;
