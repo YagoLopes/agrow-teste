@@ -17,7 +17,7 @@ export default createGlobalStyle`
     }
     #root {
       height:100%;
-      background: linear-gradient(-90deg, #008000,#286E37);
+      background: linear-gradient(-90deg,  #008080,#149414);
     }
     body {
       -webkit-font-smoothing: antialiased;

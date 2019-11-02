@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Scope } from "unform";
+import { Form, Input } from "unform";
 import * as Yup from "yup";
 import api from "../../services/api";
-
-// import { Container } from './styles';
+import Nav from "../../components/nav";
+import { Container } from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Nome obrigatório"),
-  email: Yup.string(),
-  address: Yup.object({
-    street: Yup.string(),
-    number: Yup.number()
-  })
+  email: Yup.string().required("Email é obrigatório"),
+  password: Yup.string().required("Senha é obrigatória"),
 });
 
 export default function UserForm({ history, match }) {
   const [data, setData] = useState({});
 
   async function handleSubmit(data) {
-    console.log(data);
     await api.postOrPut("/users", match.params.id, data);
 
     history.push("/users");
@@ -38,16 +34,14 @@ export default function UserForm({ history, match }) {
   }, [match.params, match.params.id]);
 
   return (
+    <Container>
+      <Nav/>
     <Form schema={schema} initialData={data} onSubmit={handleSubmit}>
       <Input name="name" label="Nome" />
       <Input name="email" label="E-mail" />
-
-      <Scope name="address" path="address">
-        <Input name="street" label="Rua" />
-        <Input name="number" label="Número" />
-      </Scope>
-
+      <Input name="password" label="password" />
       <button type="submit">Enviar</button>
     </Form>
+    </Container>
   );
 }

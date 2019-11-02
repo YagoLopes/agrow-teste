@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-// import { Container } from './styles';
+import { Container } from './styles';
+
+import Nav from "../../components/nav";
 
 export default function UserList() {
   const [users, setUsers] = useState([])
@@ -19,15 +21,16 @@ export default function UserList() {
 
   return (
     <>
-      <Link to="/users/create">Criar usuário</Link>
+    <Nav/>
+    <Container>
+      <div>
+      
       <table>
         <thead>
           <tr>
             <th>Nome</th>
             <th>E-mail</th>
-            <th>Rua</th>
-            <th>Nº</th>
-            <th></th>
+            <th>Senha</th>
           </tr>
         </thead>
         <tbody>
@@ -35,8 +38,7 @@ export default function UserList() {
             <tr key={user._id}>
               <td>{user.name}</td>
               <td>{user.email}</td>
-              <td>{user.address.street}</td>
-              <td>{user.address.number}</td>
+              <td>{user.password}</td>
               <td>
                 <Link to={`/users/edit/${user._id}`}>Editar</Link>
               </td>
@@ -44,6 +46,9 @@ export default function UserList() {
           )) }
         </tbody>
       </table>
+      <Link to="/users/create">Criar usuário</Link>
+      </div>
+    </Container>
     </>
   );
 }

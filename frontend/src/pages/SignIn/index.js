@@ -21,7 +21,7 @@ export default function SignIn({history}) {
       await setToken(response.data._id);
       history.push("/main");
     } catch (error) {
-      alert.error("Usuário ou senha ivalida!!");
+      alert("Usuário ou senha ivalida!!");
     }
   }
 

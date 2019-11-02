@@ -1,6 +1,13 @@
-import React from "react";
-import { Container } from "./styles";
+import React from 'react';
+import Nav from "../../components/nav";
+
+import { Container } from './styles';
 
 export default function Main() {
-  return <Container>Main</Container>;
+  return (
+    <>
+    <Nav/>
+<Container/>
+    </>
+  );
 }
