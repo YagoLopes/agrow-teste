@@ -43,6 +43,7 @@ export default function UserForm({ history, match }) {
       <Input name="email" label="E-mail" />
       <Input name="password" label="password" />
       <button type="submit">Enviar</button>
+      <button className="voltar" onClick={ ()=> history.push("/users")} type="button">Cancelar</button>
     </Form>
     </main>
     </Container>

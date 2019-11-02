@@ -10,14 +10,21 @@ export default function DemandsList() {
   const [demands, setDemands] = useState([])
 
   useEffect(() => {
-    async function loadDemands() {
-      const response = await api.get('/demands');
-
-      setDemands(response.data);
-    }
+    
 
     loadDemands()
   }, []);
+
+  async function loadDemands() {
+    const response = await api.get('/demands');
+
+    setDemands(response.data);
+  }
+
+  async function destroy(id) {
+    await api.delete(`/demands/${id}`);
+    loadDemands();
+  }
 
   return (
     <>
@@ -27,9 +34,10 @@ export default function DemandsList() {
         {demands.map((demand) => {
           return <article key={demand._id}>
 <strong>{demand.title}</strong>
+<time>{demand.limit}</time>
 <p>{demand.description}</p>
 <Link to={`/demands/edit/${demand._id}`}>Editar</Link>
-
+<a className="destroy" onClick={()=>{destroy(demand._id)}} >Excluir</a>
           </article>
                  
         })}

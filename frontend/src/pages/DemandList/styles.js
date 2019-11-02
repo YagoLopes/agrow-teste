@@ -7,31 +7,35 @@ export const Container = styled.div`
   align-items: center;
 
   div{
-    max-width: 100%;
-    margin: 20px auto 0;
+
+    max-width: 90%;
+    margin: 20px auto;
     padding: 0 20px;
+    display:flex;
+    flex-flow: row wrap;
+
 
     article {
     background-color: #fff;
+    width: 200px;
     border-radius: 5px;
+    display:flex;
+    flex-direction:column;
     
     border: 1px solid #ddd;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0 0 20px;
 
  
 }
 
 
-article p {
-    font-size: 16px;
+article p{
     color: #999;
-    margin-top: 5px;
-    line-height: 24px;
-    max-width: 90%;
+    word-wrap: break-word;
 }
 article a {
-    height: 42px;
+
     border-radius: 5px;
     border: 2px solid #008080;
     background-color: none;
@@ -44,10 +48,23 @@ article a {
     justify-content: center;
     align-items: center;
     transition: all 0.2s;
-}
-article a:hover {
+
+    :hover {
     background-color: #008080;
     color: #fff;
+}
+}
+
+
+article a.destroy{
+  cursor: pointer;
+  color:red;
+  border: 2px solid red;
+  :hover{
+    background-color: red;
+    color: #fff;
+  }
+
 }
 
 

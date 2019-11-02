@@ -49,6 +49,7 @@ export default function DemandForm({ history, match }) {
       <Input name="client" label="Cliente" />
       <Input name="limit" label="Data limite" />
       <button type="submit">Enviar</button>
+      <button className="voltar" onClick={ ()=> history.push("/demands")} type="button">Cancelar</button>
     </Form>
     </main>
     </Container>

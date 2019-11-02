@@ -18,6 +18,8 @@ export const Container = styled.div`
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 20px;
+ 
+
     form {
       display: flex;
       flex-direction: column;
@@ -41,6 +43,7 @@ export const Container = styled.div`
         text-shadow: 1px 1px #333;
       }
       button {
+        cursor: pointer;
         margin: 5px 0 0;
         height: 44px;
         background: #3b9eff;
@@ -51,6 +54,15 @@ export const Container = styled.div`
         font-size: 16px;
         transition: background 0.2s;
       }
+
+      button.voltar {
+        margin-top:10px;
+        background: #c2c2c2;
+
+        color: #fff;
+
+      }
+
     }
   }
 `;
