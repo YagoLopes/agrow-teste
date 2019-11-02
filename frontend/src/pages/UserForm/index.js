@@ -9,6 +9,7 @@ const schema = Yup.object().shape({
   name: Yup.string().required("Nome obrigatório"),
   email: Yup.string().required("Email é obrigatório"),
   password: Yup.string().required("Senha é obrigatória"),
+  avatar_url: Yup.string().required("Avatar é obrigatória"),
 });
 
 export default function UserForm({ history, match }) {
@@ -40,6 +41,7 @@ export default function UserForm({ history, match }) {
       <main>
     <Form schema={schema} initialData={data} onSubmit={handleSubmit}>
       <Input name="name" label="Nome" />
+      <Input name="avatar_url" label="Avatar" />
       <Input name="email" label="E-mail" />
       <Input name="password" label="password" />
       <button type="submit">Enviar</button>

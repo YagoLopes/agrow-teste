@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'https://o176d.sse.codesandbox.io',
 })
 
 api.postOrPut = (url, id, data, config = {}) => {
