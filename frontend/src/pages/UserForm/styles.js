@@ -15,19 +15,12 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 20px;
+ width: 100%;
+ 
+
     form {
-
+      width: 50%;
       animation: fade 1.2s;
-
-
-
-
-
-
-
       display: flex;
       flex-direction: column;
       margin-top: 30px;
