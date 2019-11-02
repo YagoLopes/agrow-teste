@@ -13,7 +13,20 @@ export const Container = styled.div`
     padding: 0 20px;
     display:flex;
     flex-flow: row wrap;
+    animation: fade 1.2s;
 
+
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 
     article {
     background-color: #fff;
@@ -26,7 +39,23 @@ export const Container = styled.div`
     padding: 20px;
     margin: 20px 0 0 20px;
 
+   
+
+  
+
+
  
+}
+
+article img{
+  width: 50px;
+  height: 50px ;
+  border-radius: 50%;
+  align-self:center;
+}
+
+article strong{
+  align-self:center;
 }
 
 

@@ -21,6 +21,23 @@ export const Container = styled.div`
  
 
     form {
+      animation: fade 1.2s;
+
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
       display: flex;
       flex-direction: column;
       margin-top: 30px;

@@ -15,6 +15,22 @@ export const Container = styled.div`
     flex-flow: row wrap;
 
 
+    animation: fade 1.2s;
+
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
     article {
     background-color: #fff;
     width: 200px;

@@ -34,4 +34,10 @@ export default createGlobalStyle`
     buttton {
       cursor: pointer;
     }
+
+  
+
+
+    
+
 `;
