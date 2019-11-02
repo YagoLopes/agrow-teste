@@ -34,14 +34,18 @@ export default function UserForm({ history, match }) {
   }, [match.params, match.params.id]);
 
   return (
+    <>
+    <Nav/>
     <Container>
-      <Nav/>
+      <main>
     <Form schema={schema} initialData={data} onSubmit={handleSubmit}>
       <Input name="name" label="Nome" />
       <Input name="email" label="E-mail" />
       <Input name="password" label="password" />
       <button type="submit">Enviar</button>
     </Form>
+    </main>
     </Container>
+    </>
   );
 }

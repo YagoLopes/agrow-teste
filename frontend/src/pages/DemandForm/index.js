@@ -38,8 +38,10 @@ export default function DemandForm({ history, match }) {
   }, [match.params, match.params.id]);
 
   return (
+    <>
+    <Nav/>
     <Container>
-      <Nav/>
+    <main>  
     <Form schema={schema} initialData={data} onSubmit={handleSubmit}>
       <Input name="title" label="Titulo" />
       <Input name="description" label="Descrição" />
@@ -48,6 +50,8 @@ export default function DemandForm({ history, match }) {
       <Input name="limit" label="Data limite" />
       <button type="submit">Enviar</button>
     </Form>
+    </main>
     </Container>
+    </>
   );
 }
