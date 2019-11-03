@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 import api from '../../services/api';
+import 'moment-timezone';
+import { FaPlus } from 'react-icons/fa';
 
 import { Container } from './styles';
 
-import Nav from "../../components/nav";
+import Nav from '../../components/nav';
 
 export default function DemandsList() {
-  const [demands, setDemands] = useState([])
+  const [demands, setDemands] = useState([]);
 
   useEffect(() => {
-    
-
-    loadDemands()
+    loadDemands();
   }, []);
 
   async function loadDemands() {
@@ -28,21 +29,52 @@ export default function DemandsList() {
 
   return (
     <>
-    <Nav/>
-    <Container>
-    <div>
-        {demands.map((demand) => {
-          return <article key={demand._id}>
-<strong>{demand.title}</strong>
-<time>{demand.limit}</time>
-<p>{demand.description}</p>
-<Link to={`/demands/edit/${demand._id}`}>Editar</Link>
-<a className="destroy" onClick={()=>{destroy(demand._id)}} >Excluir</a>
-          </article>
-                 
-        })}
+      <Nav />
+
+      <Container>
+
+      <header>CHAMADOS</header>
+
+     <div>
+          {demands.map((demand) => (
+            <article key={demand._id}>
+              <strong>{demand.client}</strong>
+              <span>
+                {' '}
+Atendente:
+                {demand.author}
+              </span>
+              <span>
+                {' '}
+Solicitante:
+                {demand.requester}
+              </span>
+              <span>
+                  Entregar até:
+                {' '}
+                <Moment format="YYYY/MM/DD HH:mm">{demand.limit}</Moment>
+              </span>
+              <span>
+                  Criado em:
+                {' '}
+                <Moment format="YYYY/MM/DD HH:mm">{demand.createdAt}</Moment>
+              </span>
+              <p>{demand.description}</p>
+              <Link to={`/demands/edit/${demand._id}`} title="Editar dados do chamado"   >Editar</Link>
+              <a
+                className="destroy"
+                title="Excluir chamado"
+                onClick={() => {
+                  destroy(demand._id);
+                }}
+              >
+                  Excluir
+              </a>
+            </article>
+          ))}
         </div>
-    </Container>
+        <Link id="new" to="/demands/create" title="Adicionar novo chamado" ><FaPlus/></Link>
+      </Container>
     </>
   );
 }

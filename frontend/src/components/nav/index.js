@@ -1,27 +1,30 @@
-import React from "react";
+import React from 'react';
 import { bubble as Menu } from 'react-burger-menu';
-import {Link} from "react-router-dom";
-import {styles, List } from "./styles";
-import {logout} from "../../services/auth";
-
+import { Link } from 'react-router-dom';
+import { styles, Container } from './styles';
+import { logout, getName } from '../../services/auth';
+import { FaSignOutAlt, FaCheck } from 'react-icons/fa';
 
 export default function Nav() {
 
-  function handleLogout(){
-    logout();  
-  }
 
-  return (
-    <Menu styles={styles}>
-     <List>
-     <li><Link to="/main">Dashboard</Link></li>
- 
-   <li><Link to="/demands">Demandas</Link></li>
-   <li><Link to="/demands/create">Nova Demanda</Link></li>
-   <li><Link to="/users">Usuários</Link></li>
-   <li><Link to="/users/create">Novo Usuário</Link></li>
-    </List>
-    <button type="button" onClick={handleLogout} >Sair</button>
-  </Menu>
-  );
+    return (
+        <Menu styles={styles}>
+            <Container>
+                <ul>
+                    <li>
+                        <strong>{getName()}</strong>
+                    </li>
+                    <li>
+                        <Link to="/demands" title="Listar Chamados" > <FaCheck /> Chamados</Link>
+                    </li>
+
+
+                </ul>
+                <a id="sair" onClick={logout} title="Finalizar Seção" >
+                    <FaSignOutAlt/>   Sair
+      </a>
+            </Container>
+        </Menu>
+    );
 }

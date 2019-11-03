@@ -1,22 +1,30 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  
+
+  header{
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 5px;
+  }
+
   main {
-      color:#fff;
-      font-weight: bold;
-      font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
- width: 100%;
- 
+    width: 100%;
 
     form {
       width: 50%;
@@ -24,18 +32,38 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       margin-top: 30px;
+
+      @media screen and (max-width: 500px) {
+        width: 70%;
+      }
+
       input {
         background: rgba(0, 0, 0, 0.1);
         border: 0;
         border-radius: 4px;
         height: 44px;
         padding: 0 10px;
-        color: #F1F1F1;
+        color: #f1f1f1;
         margin: 0 0 10px;
         &::placeholder {
-          color: #F1F1F1;
+          color: #f1f1f1;
         }
       }
+      textarea {
+        background: rgba(0, 0, 0, 0.1);
+        border: 0;
+        border-radius: 4px;
+        height: 44px;
+        padding: 0 10px;
+        color: #f1f1f1;
+        margin: 0 0 10px;
+        &::placeholder {
+          color: #f1f1f1;
+        }
+      }
+
+
+
       span {
         color: #cc6666;
         align-self: flex-start;
@@ -56,13 +84,11 @@ export const Container = styled.div`
       }
 
       button.voltar {
-        margin-top:10px;
+        margin-top: 10px;
         background: #c2c2c2;
 
         color: #fff;
-
       }
-
     }
   }
 `;

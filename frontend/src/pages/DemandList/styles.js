@@ -4,7 +4,37 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   display:flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+
+  a#new {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:10px;
+    margin: 5px 0 0;
+        height: 50px;
+        width: 50px;
+        border: 0;
+         border-radius: 50%;
+        background: #3b9eff;
+        font-weight: bold;
+        color: #fff;
+        font-size: 16px;
+        transition: background 0.2s;
+
+}
+
+
+  header{
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 5px;
+  }
 
   div{
 
@@ -12,28 +42,22 @@ export const Container = styled.div`
     margin: 20px auto;
     padding: 0 20px;
     display:flex;
+    justify-content: center;
+    align-items: center;
     flex-flow: row wrap;
-
-
     animation: fade 1.2s;
-
-
-
-
-
-
     article {
     background-color: #fff;
     width: 200px;
     border-radius: 5px;
     display:flex;
     flex-direction:column;
-    
+
     border: 1px solid #ddd;
     padding: 20px;
     margin: 20px 0 0 20px;
 
- 
+
 }
 
 
@@ -74,6 +98,4 @@ article a.destroy{
 
 }
 
-
-  }
 `;
