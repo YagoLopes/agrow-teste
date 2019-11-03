@@ -3,7 +3,7 @@ import { Form, Input } from "@rocketseat/unform";
 import * as Yup from "yup";
 import { Container } from "./styles";
 import api from "../../services/api";
-import {setToken} from "../../services/auth";
+import { setToken } from "../../services/auth";
 
 import logo from "../../assets/img/logo.png";
 
@@ -14,12 +14,12 @@ const schema = Yup.object().shape({
   password: Yup.string().required("A senha é obrigatória.")
 });
 
-export default function SignIn({history}) {
- async function handleSubmit({ email, password }) {
+export default function SignIn({ history }) {
+  async function handleSubmit({ email, password }) {
     try {
       const response = await api.post("session", { email, password });
       await setToken(response.data._id);
-      history.push("/main");
+      history.push("/demands");
     } catch (error) {
       alert("Usuário ou senha ivalida!!");
     }

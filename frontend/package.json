@@ -5,10 +5,13 @@
   "dependencies": {
     "@rocketseat/unform": "^1.6.1",
     "axios": "^0.18.0",
+    "chart.js": "2.9.2",
+    "moment-timezone": "0.5.27",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.11",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.8.6",
+    "react-moment": "0.9.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "styled-components": "^4.2.0",
