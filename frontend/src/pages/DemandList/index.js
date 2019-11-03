@@ -10,71 +10,69 @@ import { Container } from './styles';
 import Nav from '../../components/nav';
 
 export default function DemandsList() {
-  const [demands, setDemands] = useState([]);
+    const [demands, setDemands] = useState([]);
 
-  useEffect(() => {
-    loadDemands();
-  }, []);
+    useEffect(() => {
+        loadDemands();
+    }, []);
 
-  async function loadDemands() {
-    const response = await api.get('/demands');
+    async function loadDemands() {
+        const response = await api.get('/demands');
 
-    setDemands(response.data);
-  }
+        setDemands(response.data);
+    }
 
-  async function destroy(id) {
-    await api.delete(`/demands/${id}`);
-    loadDemands();
-  }
+    async function destroy(id) {
+        await api.delete(`/demands/${id}`);
+        loadDemands();
+    }
 
-  return (
-    <>
-      <Nav />
+    return (
+        <>
+            <Nav />
 
-      <Container>
+            <Container>
 
-      <header>CHAMADOS</header>
+                <header>CHAMADOS</header>
 
-     <div>
-          {demands.map((demand) => (
-            <article key={demand._id}>
-              <strong>{demand.client}</strong>
-              <span>
-                {' '}
-Atendente:
-                {demand.author}
-              </span>
-              <span>
-                {' '}
-Solicitante:
-                {demand.requester}
-              </span>
-              <span>
-                  Entregar até:
-                {' '}
-                <Moment format="YYYY/MM/DD HH:mm">{demand.limit}</Moment>
-              </span>
-              <span>
-                  Criado em:
-                {' '}
-                <Moment format="YYYY/MM/DD HH:mm">{demand.createdAt}</Moment>
-              </span>
-              <p>{demand.description}</p>
-              <Link to={`/demands/edit/${demand._id}`} title="Editar dados do chamado"   >Editar</Link>
-              <a
-                className="destroy"
-                title="Excluir chamado"
-                onClick={() => {
-                  destroy(demand._id);
-                }}
-              >
-                  Excluir
+                <div>
+                    {demands.map((demand) => (
+                        <article key={demand._id}>
+                            <span>{demand.client}</span>
+                            <ul>
+                                <li>
+
+                                <strong>Atendente </strong>
+                                <small>{demand.author}</small>
+                                </li>
+                                <li>
+                                <strong>Solicitante </strong>
+                                <small>{demand.requester}</small>
+                                </li>
+                                <li>
+                                <strong>
+                                    Entrega
+                  </strong>
+
+                                <small> <Moment format="YYYY/MM/DD HH:mm">{demand.limit}</Moment></small>
+                                </li>
+                            </ul>
+                            <p>{demand.description}</p>
+                            <Link to={`/demands/edit/${demand._id}`} title="Editar dados do chamado"   >Editar</Link>
+                            <a
+                                className="destroy"
+                                title="Excluir chamado"
+                                onClick={() => {
+                                    destroy(demand._id);
+                                }}
+                            >
+                                Excluir
               </a>
-            </article>
-          ))}
-        </div>
-        <Link id="new" to="/demands/create" title="Adicionar novo chamado" ><FaPlus/></Link>
-      </Container>
-    </>
-  );
+                        </article>
+                    ))}
+                </div>
+                <Link id="new" to="/demands/create" title="Adicionar novo chamado" ><FaPlus /></Link>
+            </Container>
+        </>
+    );
 }

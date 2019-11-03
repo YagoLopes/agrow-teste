@@ -20,13 +20,17 @@ ul{
  li{
 
    padding: 10px;
- font-size: 1em;
+
  display: flex;
      justify-content: center;
      align-items:center;
 
- a{
+     strong{
+        font-size: 1.5em;
+     }
 
+ a{
+    font-size: 1em;
    color:#3b9eff;
    :hover{
    color: #235e99;

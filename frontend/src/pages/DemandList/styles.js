@@ -10,6 +10,9 @@ export const Container = styled.div`
 
 
   a#new {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
       display:flex;
       justify-content:center;
       align-items:center;
@@ -19,9 +22,9 @@ export const Container = styled.div`
         width: 50px;
         border: 0;
          border-radius: 50%;
-        background: #3b9eff;
+        background: #fff;
         font-weight: bold;
-        color: #fff;
+        color:  #3b9eff;
         font-size: 16px;
         transition: background 0.2s;
 
@@ -46,7 +49,7 @@ export const Container = styled.div`
     align-items: center;
     flex-flow: row wrap;
     animation: fade 1.2s;
-    article {
+article {
     background-color: #fff;
     width: 200px;
     border-radius: 5px;
@@ -57,37 +60,63 @@ export const Container = styled.div`
     padding: 20px;
     margin: 20px 0 0 20px;
 
+    span{
+        text-align: center;
+    }
 
-}
+    strong{
+margin-top: 10px;
+
+  }
+
+ ul {
+   list-style: none;
+
+   li{
+     font-weight: bold;
+     padding: 5px 10px;
+   small{
+     font-weight: normal;
+     color: #999;
+     font-style: italic;
+   }
+   &:nth-child( 2n - 1 ){
+     background: #f5f5f5;
+   }
+   }
+ }
 
 
-article p{
+    p{
     color: #999;
     word-wrap: break-word;
 }
-article a {
 
-    border-radius: 5px;
-    border: 2px solid #008080;
-    background-color: none;
-    margin-top: 10px;
-    color:#008080;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s;
-
-    :hover {
-    background-color: #008080;
-    color: #fff;
-}
 }
 
 
-article a.destroy{
+
+a {
+
+border-radius: 5px;
+border: 2px solid #008080;
+background-color: none;
+margin-top: 10px;
+color:#008080;
+font-weight: bold;
+font-size: 16px;
+text-decoration: none;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: all 0.2s;
+
+:hover {
+background-color: #008080;
+color: #fff;
+}
+}
+ a.destroy{
   cursor: pointer;
   color:red;
   border: 2px solid red;
